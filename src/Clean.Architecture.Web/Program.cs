@@ -1,11 +1,14 @@
 ﻿using System.Reflection;
 using Ardalis.ListStartupServices;
 using Ardalis.SharedKernel;
+using Clean.Architecture.Core.CityAggregate;
 using Clean.Architecture.Core.ContributorAggregate;
 using Clean.Architecture.Core.Interfaces;
 using Clean.Architecture.Infrastructure;
 using Clean.Architecture.Infrastructure.Data;
 using Clean.Architecture.Infrastructure.Email;
+using Clean.Architecture.UseCases.Areas.Create;
+using Clean.Architecture.UseCases.Cities.Create;
 using Clean.Architecture.UseCases.Contributors.Create;
 using FastEndpoints;
 using FastEndpoints.Swagger;
@@ -104,7 +107,11 @@ void ConfigureMediatR()
   var mediatRAssemblies = new[]
 {
   Assembly.GetAssembly(typeof(Contributor)), // Core
-  Assembly.GetAssembly(typeof(CreateContributorCommand)) // UseCases
+  Assembly.GetAssembly(typeof(CreateContributorCommand)), // UseCases
+  Assembly.GetAssembly(typeof(Area)),
+  Assembly.GetAssembly(typeof(CreateAreaCommand)),
+  Assembly.GetAssembly(typeof(City)),
+  Assembly.GetAssembly(typeof(CreateCityCommand)),
 };
   builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(mediatRAssemblies!));
   builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
