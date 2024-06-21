@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Ardalis.Result;
+﻿using Ardalis.Result;
 using Clean.Architecture.UseCases.Areas;
 using Clean.Architecture.UseCases.Cities.List;
 using FastEndpoints;

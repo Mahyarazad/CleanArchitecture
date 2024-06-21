@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Clean.Architecture.UseCases.Areas;
-using Clean.Architecture.UseCases.Contributors;
+﻿using Clean.Architecture.UseCases.Areas;
 
 namespace Clean.Architecture.UseCases.Cities.List;
 public interface IListCitiesQueryService

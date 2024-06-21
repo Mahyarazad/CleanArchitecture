@@ -1,6 +1,5 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Clean.Architecture.UseCases.Areas;
 using Clean.Architecture.UseCases.Cities.List;
 
 namespace Clean.Architecture.UseCases.Areas.List;

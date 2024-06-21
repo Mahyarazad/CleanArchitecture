@@ -1,6 +1,4 @@
-﻿using Clean.Architecture.Web.Areas;
-
-namespace Clean.Architecture.Web.Areas;
+﻿namespace Clean.Architecture.Web.Areas;
 
 public class UpdateAreaResponse(AreaRecord area)
 {
