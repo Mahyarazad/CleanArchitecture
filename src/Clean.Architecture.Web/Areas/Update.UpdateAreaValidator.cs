@@ -4,9 +4,9 @@ using FluentValidation;
 
 namespace Clean.Architecture.Web.Areas;
 
-public class UpdateContributorValidator : Validator<UpdateAreaRequest>
+public class UpdateAreaValidator : Validator<UpdateAreaRequest>
 {
-  public UpdateContributorValidator()
+  public UpdateAreaValidator()
   {
     RuleFor(x => x.AreaName)
       .NotEmpty()
