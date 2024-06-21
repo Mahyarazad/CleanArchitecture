@@ -11,6 +11,6 @@ public class AreaByIdSpec : Specification<Area>
 {
   public AreaByIdSpec(int areaId)
   {
-    Query.Where(x => x.Id == areaId);
+    Query.Include(x=>x.City).Where(x => x.Id == areaId);
   }
 }

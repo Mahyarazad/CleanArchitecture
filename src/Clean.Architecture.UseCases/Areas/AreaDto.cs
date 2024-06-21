@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Clean.Architecture.UseCases.Areas;
-public record AreaDTO(int id, string areaName, string? areaDisplayName)
+public record AreaDTO(int id, string areaName, string? areaDisplayName, int? cityID, CityDTO? city)
 {
 }

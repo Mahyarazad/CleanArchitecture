@@ -1,5 +1,7 @@
-﻿namespace Clean.Architecture.Web.Areas;
+﻿using Clean.Architecture.Web.Cities;
 
-public record AreaRecord(int id, string areaName, string? areaDisplayName, int? cityId)
+namespace Clean.Architecture.Web.Areas;
+
+public record AreaRecord(int id, string areaName, string? areaDisplayName, int? cityId, CityRecord? city)
 {
 }
