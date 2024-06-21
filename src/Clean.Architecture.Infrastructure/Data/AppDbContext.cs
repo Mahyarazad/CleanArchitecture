@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Ardalis.SharedKernel;
+using Clean.Architecture.Core.CityAggregate;
 using Clean.Architecture.Core.ContributorAggregate;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,10 +17,16 @@ public class AppDbContext : DbContext
   }
 
   public DbSet<Contributor> Contributors => Set<Contributor>();
+  public DbSet<City> Cities => Set<City>();
+  public DbSet<Area> Areas => Set<Area>();
+
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
+
+
+
     modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
   }
 
