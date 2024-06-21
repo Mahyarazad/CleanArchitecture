@@ -5,6 +5,8 @@ using Clean.Architecture.Core.Services;
 using Clean.Architecture.Infrastructure.Data;
 using Clean.Architecture.Infrastructure.Data.Queries;
 using Clean.Architecture.Infrastructure.Email;
+using Clean.Architecture.UseCases.Areas.List;
+using Clean.Architecture.UseCases.Cities.List;
 using Clean.Architecture.UseCases.Contributors.List;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +29,8 @@ public static class InfrastructureServiceExtensions
     services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
     services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
     services.AddScoped<IListContributorsQueryService, ListContributorsQueryService>();
+    services.AddScoped<IListAreasQueryService, ListAreasQueryService>();
+    services.AddScoped<IListCitiesQueryService, ListCitiesQueryService>();
     services.AddScoped<IDeleteContributorService, DeleteContributorService>();
 
     services.Configure<MailserverConfiguration>(config.GetSection("Mailserver"));
