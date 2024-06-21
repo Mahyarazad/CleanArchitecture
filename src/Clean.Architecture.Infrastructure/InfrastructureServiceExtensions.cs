@@ -32,6 +32,8 @@ public static class InfrastructureServiceExtensions
     services.AddScoped<IListAreasQueryService, ListAreasQueryService>();
     services.AddScoped<IListCitiesQueryService, ListCitiesQueryService>();
     services.AddScoped<IDeleteContributorService, DeleteContributorService>();
+    services.AddScoped<IDeleteAreaService, DeleteAreaService>();
+    services.AddScoped<IDeleteCityService, DeleteCityService>();
 
     services.Configure<MailserverConfiguration>(config.GetSection("Mailserver"));
 

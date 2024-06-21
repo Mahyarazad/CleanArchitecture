@@ -1,12 +1,7 @@
 ﻿using Ardalis.Result;
-using Clean.Architecture.UseCases.Contributors.Get;
-using Clean.Architecture.Web.Contributors;
-using System.Threading;
 using FastEndpoints;
 using MediatR;
-using Clean.Architecture.UseCases.Cities.Get;
 using Clean.Architecture.Web.Cities;
-using Org.BouncyCastle.Ocsp;
 using Clean.Architecture.UseCases.Areas.Get;
 
 namespace Clean.Architecture.Web.Areas;
