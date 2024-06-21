@@ -24,7 +24,7 @@ public class ListCitiesQueryService : IListCitiesQueryService
       .OrderBy(x => x.Id)
       .Skip(skip)
       .Take(take)
-      .Select(x=> new CityDTO(x.Id, x.CityName, x.CityDisplayName, x.Aera.Select(a=> new AreaDTO(a.Id, a.AreaName, a.AreaDisplayName, null, null))))
+      .Select(x=> new CityDTO(x.Id, x.CityName, x.CityDisplayName, x.Aera.Select(a=> new AreaDTO(a.Id, a.AreaName, a.AreaDisplayName, a.CityId, null))))
       .ToListAsync(ctx);
     return result;
   }
