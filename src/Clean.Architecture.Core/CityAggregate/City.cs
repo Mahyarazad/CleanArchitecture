@@ -16,5 +16,10 @@ public class City : EntityBase, IAggregateRoot
 
   public virtual ICollection<Area> Aera { get; set; }
 
+  public void UpdateCity(string cityName, string? displayName)
+  {
+    CityName = cityName;
+    CityDisplayName = displayName;
+  }
 }
 
