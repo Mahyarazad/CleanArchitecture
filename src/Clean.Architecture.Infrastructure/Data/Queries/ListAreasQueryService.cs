@@ -1,4 +1,5 @@
-﻿using Clean.Architecture.UseCases.Areas;
+﻿using Clean.Architecture.Infrastructure.Data.Extensions;
+using Clean.Architecture.UseCases.Areas;
 using Clean.Architecture.UseCases.Areas.List;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,13 +14,9 @@ public class ListAreasQueryService : IListAreasQueryService
   public async Task<IEnumerable<AreaDTO>> ListAsync(int skip, int take, CancellationToken ctx)
   {
     // todo: add filtering and pagination
-    var result = await _dbContext.Areas.Include(x=>x.City)
-      .OrderBy(x => x.Id)
-      .Skip(skip)
-      .Take(take)
-      .Select(x=> new AreaDTO(x.Id, x.AreaName, x.AreaDisplayName,x.CityId, x.City != null ? new CityDTO(x.City.Id!, x.City.CityName, x.City.CityDisplayName, null) : null))
-      .ToListAsync(ctx);
-    return result;
+    return await _dbContext.Areas.Include(x => x.City)
+      .ApplySorting()
+      .ApplyPagination(skip, take)
+      .Execute(ctx);
   }
-
 }
