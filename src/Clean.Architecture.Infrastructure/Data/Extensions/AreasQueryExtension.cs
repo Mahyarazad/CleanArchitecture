@@ -1,6 +1,6 @@
 ﻿using Clean.Architecture.Core.CityAggregate;
 using Clean.Architecture.UseCases.Areas;
-using Microsoft.CodeAnalysis.FlowAnalysis;
+using Clean.Architecture.UseCases.Cities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clean.Architecture.Infrastructure.Data.Extensions;
@@ -10,7 +10,6 @@ public static class AreasQueryExtension
   {
     return query.Where(x => x.AreaName.Contains(title, StringComparison.OrdinalIgnoreCase));
   }
-
   public static IQueryable<Area> ApplyPagination(this IQueryable<Area> query, int skip, int take)
   {
     return query.Skip(skip).Take(take);

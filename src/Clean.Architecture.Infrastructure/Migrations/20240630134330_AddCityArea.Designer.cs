@@ -8,17 +8,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Clean.Architecture.Infrastructure.Data.Migrations
+namespace Clean.Architecture.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240619111933_AddCityArea")]
+    [Migration("20240630134330_AddCityArea")]
     partial class AddCityArea
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
 
             modelBuilder.Entity("Clean.Architecture.Core.CityAggregate.Area", b =>
                 {
@@ -93,7 +93,7 @@ namespace Clean.Architecture.Infrastructure.Data.Migrations
                     b.HasOne("Clean.Architecture.Core.CityAggregate.City", "City")
                         .WithMany("Aera")
                         .HasForeignKey("CityId")
-                        .HasConstraintName("FK_City_Area");
+                        .HasConstraintName("FK_Area_City");
 
                     b.Navigation("City");
                 });

@@ -16,10 +16,5 @@ internal class CityConfiguration : IEntityTypeConfiguration<City>
 
 
     builder.HasIndex(x => x.CityName, "IX_CityName");
-
-    builder.HasMany(x => x.Aera)
-      .WithOne(x => x.City)
-      .HasForeignKey(x => x.CityId)
-      .HasConstraintName("FK_City_Area").IsRequired(false);
   }
 }

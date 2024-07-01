@@ -15,7 +15,7 @@ namespace Clean.Architecture.Infrastructure.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
 
             modelBuilder.Entity("Clean.Architecture.Core.CityAggregate.Area", b =>
                 {
@@ -90,7 +90,7 @@ namespace Clean.Architecture.Infrastructure.Data.Migrations
                     b.HasOne("Clean.Architecture.Core.CityAggregate.City", "City")
                         .WithMany("Aera")
                         .HasForeignKey("CityId")
-                        .HasConstraintName("FK_City_Area");
+                        .HasConstraintName("FK_Area_City");
 
                     b.Navigation("City");
                 });

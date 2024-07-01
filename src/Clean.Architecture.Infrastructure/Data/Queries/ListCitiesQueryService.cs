@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Clean.Architecture.Core.CityAggregate;
-using Clean.Architecture.UseCases.Areas;
+﻿using Clean.Architecture.UseCases.Areas;
+using Clean.Architecture.UseCases.Cities;
 using Clean.Architecture.UseCases.Cities.List;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Clean.Architecture.Infrastructure.Data.Queries;
 public class ListCitiesQueryService : IListCitiesQueryService

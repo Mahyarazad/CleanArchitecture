@@ -18,5 +18,6 @@ public class ListAreasQueryService : IListAreasQueryService
       .ApplySorting()
       .ApplyPagination(skip, take)
       .Execute(ctx);
+
   }
 }
