@@ -1,4 +1,5 @@
-﻿using Clean.Architecture.UseCases.Areas;
+﻿
+using Clean.Architecture.UseCases.Cities;
 
 namespace Clean.Architecture.Web.Cities;
 

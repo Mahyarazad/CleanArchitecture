@@ -1,4 +1,5 @@
 ﻿using Ardalis.Result;
+using Clean.Architecture.UseCases.Areas.Delete;
 using Clean.Architecture.UseCases.Cities.Delete;
 using FastEndpoints;
 using MediatR;

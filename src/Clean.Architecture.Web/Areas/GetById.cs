@@ -27,7 +27,7 @@ public class GetById(IMediator mediator) : Endpoint<GetAreaByIdRequest, AreaReco
     if (result.IsSuccess)
     {
       Response = new AreaRecord(result.Value.id, result.Value.areaName, result.Value.areaDisplayName,result.Value.cityID
-        , result.Value.city != null ? new CityRecord(result.Value.city.id, result.Value.city.cityName, result.Value.city.cityDisplayName, null) : null);
+        , result.Value.city != null ? new CityRecord(result.Value.city.Value.id, result.Value.city.Value.cityName, result.Value.city.Value.cityDisplayName, null) : null);
     }
   }
 }

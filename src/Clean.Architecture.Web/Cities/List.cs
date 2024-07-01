@@ -1,5 +1,5 @@
 ﻿using Ardalis.Result;
-using Clean.Architecture.UseCases.Areas;
+using Clean.Architecture.UseCases.Cities;
 using Clean.Architecture.UseCases.Cities.List;
 using FastEndpoints;
 using MediatR;

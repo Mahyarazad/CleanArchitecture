@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Clean.Architecture.UseCases.Cities.List;
+using Clean.Architecture.UseCases.Areas.List;
 
 namespace Clean.Architecture.UseCases.Areas.List;
 public class ListAreasHandler(IListAreasQueryService _query) : IQueryHandler<ListAreasQuery, Result<IEnumerable<AreaDTO>>>

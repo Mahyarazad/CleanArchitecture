@@ -1,5 +1,6 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
+using AutoMapper;
 using Clean.Architecture.Core.CityAggregate;
 using Clean.Architecture.Core.CityAggregate.Specifications;
 using Clean.Architecture.UseCases.Areas;
@@ -17,6 +18,7 @@ public class GetCityHandler(IReadRepository<City> readRepository) : IQueryHandle
       return Result.NotFound();
     }
 
+    //return _mapper.Map<CityDTO>(entity);
     return new CityDTO(entity.Id, entity.CityName, entity.CityDisplayName, entity.Aera?.Select(x=> new AreaDTO(x.Id, x.AreaName, x.AreaDisplayName, null, null)));
   }
 }

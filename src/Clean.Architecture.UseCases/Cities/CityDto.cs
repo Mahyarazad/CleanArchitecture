@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
+using Clean.Architecture.UseCases.Areas;
 
-namespace Clean.Architecture.UseCases.Areas;
-public record CityDTO(int id, string cityName, string? cityDisplayName, IEnumerable<AreaDTO>? areaDto)
+namespace Clean.Architecture.UseCases.Cities;
+public record struct CityDTO(int id, string cityName, string? cityDisplayName, IEnumerable<AreaDTO>? areaDto) 
 {
+  
 }

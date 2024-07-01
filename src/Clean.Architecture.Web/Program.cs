@@ -43,6 +43,8 @@ builder.Services.AddFastEndpoints()
                 });
 
 ConfigureMediatR();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 builder.Services.AddInfrastructureServices(builder.Configuration, microsoftLogger);
 

@@ -15,7 +15,7 @@ internal class ContributorDeletedHandler(ILogger<ContributorDeletedHandler> logg
   {
     logger.LogInformation("Handling Contributed Deleted event for {contributorId}", domainEvent.ContributorId);
 
-    await emailSender.SendEmailAsync("to@test.com",
+    await emailSender.SendEmailAsync("mhyrinc@gmail.com",
                                      "from@test.com",
                                      "Contributor Deleted",
                                      $"Contributor with id {domainEvent.ContributorId} was deleted.");

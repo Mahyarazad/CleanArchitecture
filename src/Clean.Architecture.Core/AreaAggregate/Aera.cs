@@ -9,6 +9,7 @@ public class Area(string areaName, string? areaDisplayName, int? cityId) : Entit
   public string? AreaDisplayName { get; private set; } = areaDisplayName;
 
   public int? CityId { get; private set; } = cityId;
+  //navigation property
   public City? City { get; private set; }
 
   public void UpdateArea(string areaName, string? areaDisplayName, int? cityId)
