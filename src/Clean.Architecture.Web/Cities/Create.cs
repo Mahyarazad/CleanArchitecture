@@ -15,12 +15,12 @@ public class Create(IMediator _mediator) : FastEndpoints.Endpoint<CreateCityRequ
   public override async Task HandleAsync(CreateCityRequest req, CancellationToken ct)
   {
     var cityCommand = new CreateCityCommand { CityName = req.CityName, CityDisplayName = string.IsNullOrEmpty(req.CityDisplayName) ? req.CityName : req.CityDisplayName };
-    if (req.Areas!= null && req.Areas.Any())
+    if (req.Areas != null && req.Areas.Any())
     {
       cityCommand.Areas = new List<CreateAreaCommand>();
       foreach (var item in req.Areas)
       {
-        cityCommand.Areas.Add(new CreateAreaCommand(item.AreaName, item.AreaDisplayName,null));
+        cityCommand.Areas.Add(new CreateAreaCommand(item.AreaName, item.AreaDisplayName, null));
       }
     }
 

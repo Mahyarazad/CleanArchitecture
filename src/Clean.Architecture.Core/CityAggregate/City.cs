@@ -1,4 +1,5 @@
-﻿using Ardalis.GuardClauses;
+﻿using System.Collections.ObjectModel;
+using Ardalis.GuardClauses;
 using Ardalis.SharedKernel;
 
 namespace Clean.Architecture.Core.CityAggregate;
@@ -9,12 +10,12 @@ public class City : EntityBase, IAggregateRoot
     CityName = Guard.Against.NullOrEmpty(cityName);
     CityDisplayName = cityDisplayName;
     // using Hashset tp prevent duplication
-    Aera = new HashSet<Area>();
+    Aera = new List<Area>();
   }
   public string CityName { get; private set; }
   public string? CityDisplayName { get; private set; }
 
-  public virtual ICollection<Area> Aera { get; set; }
+  public virtual IEnumerable<Area>? Aera { get; set; }
 
   public void UpdateCity(string cityName, string? displayName)
   {

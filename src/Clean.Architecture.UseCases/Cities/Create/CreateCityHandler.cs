@@ -25,7 +25,7 @@ public class CreateCityHandler : ICommandHandler<CreateCityCommand, Result<int>>
     if (request.Areas != null && request.Areas.Any())
     {
       var areas = new List<Area>();
-      foreach (var area in newCity.Aera)
+      foreach (var area in newCity.Aera!)
       {
         areas.Add(area);
       }

@@ -10,7 +10,7 @@ namespace Clean.Architecture.Web.Profiles;
 public class AreaProfile : Profile
 {
   public AreaProfile()
-  {
+    {
     CreateMap<CreateAreaCommand, Area>();
     CreateMap<AreaDTO, Area>();
     CreateMap<Area, AreaDTO>();

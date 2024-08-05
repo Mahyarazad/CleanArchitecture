@@ -5,8 +5,17 @@ using Clean.Architecture.UseCases.Cities.Get;
 
 namespace Clean.Architecture.Web.Cities;
 
-public class GetById(IMediator mediator) : Endpoint<GetCityByIdRequest, CityRecord>
+public class GetById : Endpoint<GetCityByIdRequest, CityRecord>
 {
+  private readonly IMediator _mediator;
+  private readonly AutoMapper.IMapper _mapper;
+
+  public GetById(IMediator mediator, AutoMapper.IMapper mapper)
+  {
+    _mediator = mediator;
+    _mapper = mapper;
+  }
+
   public override void Configure()
   {
     Get(GetCityByIdRequest.Route);
@@ -16,7 +25,7 @@ public class GetById(IMediator mediator) : Endpoint<GetCityByIdRequest, CityReco
   public override async Task HandleAsync(GetCityByIdRequest req, CancellationToken ct)
   {
     var query = new GetCityQuery(req.CityId);
-    var result = await mediator.Send(query, ct);
+    var result = await _mediator.Send(query, ct);
     if (result.Status == ResultStatus.NotFound)
     {
       await SendNotFoundAsync(ct);
@@ -25,8 +34,7 @@ public class GetById(IMediator mediator) : Endpoint<GetCityByIdRequest, CityReco
 
     if (result.IsSuccess)
     {
-      Response = new CityRecord(result.Value.id, result.Value.cityName, result.Value.cityDisplayName, 
-        result.Value.areaDto?.Select(x=> new Areas.AreaRecord(x.id, x.areaName, x.areaDisplayName, null, null)));
+      Response = _mapper.Map<CityRecord>(result.Value);
     }
 
   }

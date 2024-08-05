@@ -25,7 +25,7 @@ public static class InfrastructureServiceExtensions
     Guard.Against.Null(connectionString);
     services.AddDbContext<AppDbContext>(options =>
      options.UseSqlite(connectionString));
-
+    services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
     services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
     services.AddScoped<IListContributorsQueryService, ListContributorsQueryService>();

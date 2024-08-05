@@ -19,6 +19,5 @@ public class GetAreaHandler(IReadRepository<Area> readRepository, IMapper _mappe
 
     return _mapper.Map<AreaDTO>(entity);  
 
-    //return new AreaDTO(entity.Id, entity.AreaName, entity.AreaDisplayName, entity.CityId, entity.City != null ? new CityDTO(entity.City.Id, entity.City.CityName, entity.City.CityDisplayName, null) : null );
   }
 }

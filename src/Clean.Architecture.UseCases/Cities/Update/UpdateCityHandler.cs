@@ -1,12 +1,20 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
+using AutoMapper;
 using Clean.Architecture.Core.CityAggregate;
 using Clean.Architecture.UseCases.Areas;
 
 namespace Clean.Architecture.UseCases.Cities.Update;
 
-public class UpdateCityHandler(IRepository<City> _repository): ICommandHandler<UpdateCityCommand, Result<CityDTO>>
+public class UpdateCityHandler: ICommandHandler<UpdateCityCommand, Result<CityDTO>>
 {
+  private readonly IMapper _mapper;
+  private readonly IRepository<City> _repository;
+  public UpdateCityHandler(IMapper mapper, IRepository<City> repository)
+  {
+    _mapper = mapper;
+    _repository = repository;
+  }
   public async Task<Result<CityDTO>> Handle(UpdateCityCommand request, CancellationToken cancellationToken)
   {
     var existingCity = await _repository.GetByIdAsync(request.cityID, cancellationToken);
@@ -19,7 +27,6 @@ public class UpdateCityHandler(IRepository<City> _repository): ICommandHandler<U
 
     await _repository.UpdateAsync(existingCity, cancellationToken);
 
-    return Result.Success(new CityDTO(existingCity.Id, existingCity.CityName, existingCity.CityDisplayName
-      , existingCity.Aera.Select(x => new AreaDTO(x.Id, x.AreaName, x.AreaDisplayName, x.CityId, null))));
+    return Result.Success(_mapper.Map<CityDTO>(existingCity));
   }
 }
